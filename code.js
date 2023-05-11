@@ -12,15 +12,14 @@
 // https://www.codewars.com/kata/56b22765e1007b79f2000079/train/javascript
 
 function isNarcissistic(n) {
-    let stringNumber = `${n}`
-
-    let fixedArray = [];
+    let stringNumber = n.toString()
+    let sum = 0;
 
     for(let i = 0; i < stringNumber.length; i++) {
-        fixedArray.push(stringNumber[i]);
+        sum += stringNumber[i] ** stringNumber.length
     }
 
-    let result = fixedArray.map(num => num ** fixedArray.length).reduce((pV, cV) => pV += cV);
-
-    return result == n
+    return sum == n
   }
+
+  console.log(isNarcissistic(153));
